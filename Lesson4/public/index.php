@@ -8,7 +8,7 @@ $uri = explode('/', $_SERVER['REQUEST_URI']);
 
 $action = isset($uri[1]) && $uri[1] ? $uri[1] : 'home';
 
-$filePath = DOCROOT . 'engine/actions/' . $action . '.php';
+$filePath = ACTIONS_PATH . $action . '.php';
 
 if (!file_exists($filePath)) {
      http_response_code(404);
