@@ -1,11 +1,10 @@
 <?php
 
 $title = 'Catalog';
-$img_dir = scandir(IMG_PATH);
 $post_file_path = (ACTIONS_PATH . 'post_file.php');
 
 
-$imgs = array_filter($img_dir, 'validArray');
+$imgs = array_filter(scandir(IMG_PATH), 'validArray');
 
 function validArray($name)
 {
