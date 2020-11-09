@@ -1,7 +1,7 @@
 <?php
 
 $title = 'Catalog';
-$post_file_path = (ACTIONS_PATH . 'post_file.php');
+$post_file_path = '/post_file/';
 
 
 $imgs = array_filter(scandir(IMG_PATH), 'validArray');
