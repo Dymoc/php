@@ -1,0 +1,7 @@
+1049:Unknown database 'nodatabase'
+1049:Unknown database 'nodatabase'
+1049:Unknown database 'nodatabase'
+Table 'nodatabase.imgs' doesn't exist in (select * from imgs;)
+Table 'nodatabase.imgs' doesn't exist in (select * from imgs;)
+Table 'nodatabase.imgs' doesn't exist in (select * from imgs;)
+Table 'nodatabase.imgs' doesn't exist in (select * from imgs;)
