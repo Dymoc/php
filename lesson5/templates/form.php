@@ -1,7 +1,7 @@
-<form enctype="multipart/form-data" action="<?= $post_file_path ?>" method="POST">
-     <input type="hidden" name="MAX_FILE_SIZE" value="20000" />
-     <input name="userfile" type="file" />
-     <br>
-     <br>
-     <input type="submit" value="Отправить файл" />
+<form method="post" enctype="multipart/form-data">
+	<input type="text" name="username">
+	<hr>
+	<input type="file" name="file">
+	<hr>
+	<button type="submit">Save</button>
 </form>
