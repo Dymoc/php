@@ -6,7 +6,7 @@ if (is_numeric(array_get($_GET, 'id'))) {
 
      $item = dbGetRow('select * from imgs where id = ' . (int)$_GET['id']  . ';');
 
-     var_dump($item['name']);
+     var_dump($item);
 
      // $var = array_get($item, 'test');
      // $var = isset($item['test']) ? $item['test'] : 123;
@@ -14,10 +14,12 @@ if (is_numeric(array_get($_GET, 'id'))) {
      if (!$item) {
           abort(404);
      }
+     
+     $title= 'Картинка';
 
-     // $content = view('pages/imgs_item', $item);
+     $content = view('pages/imgs_item',   ['imgs' => $data]);
 
-     // return require TPL_PATH . 'layout.php';
+     return require TPL_PATH . 'layout.php';
 }
 
 
