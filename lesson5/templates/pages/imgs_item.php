@@ -2,4 +2,3 @@
 <p>
      <?= $content ?>
 </p>
-<i><?= date('d.m.Y H:i', strtotime($created_at)); ?></i>
