@@ -15,11 +15,9 @@ if (is_numeric(array_get($_GET, 'id'))) {
           abort(404);
      }
 
-     $img = $item['name'] . 'png';
-     
      $content = view('pages/imgs_item', $item);
 
-     // return require TPL_PATH . 'layout.php';
+     return require TPL_PATH . 'layout.php';
 }
 
 
