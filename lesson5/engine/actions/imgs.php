@@ -2,21 +2,25 @@
 
 require DOCROOT . '/engine/db.php';
 
-// if (is_numeric(array_get($_GET, 'id'))) {
+if (is_numeric(array_get($_GET, 'id'))) {
 
-//      $item = dbGetRow('select * from imgs where id = ' . (int)$_GET['id']  . ';');
+     $item = dbGetRow('select * from imgs where id = ' . (int)$_GET['id']  . ';');
 
-//      // $var = array_get($item, 'test');
-//      // $var = isset($item['test']) ? $item['test'] : 123;
+     var_dump($item['name']);
 
-//      if (!$item) {
-//           abort(404);
-//      }
+     // $var = array_get($item, 'test');
+     // $var = isset($item['test']) ? $item['test'] : 123;
 
-//      $content = view('pages/imgs_item', $item);
+     if (!$item) {
+          abort(404);
+     }
 
-//      return require TPL_PATH . 'layout.php';
-// }
+     $img = $item['name'] . 'png';
+     
+     $content = view('pages/imgs_item', $item);
+
+     // return require TPL_PATH . 'layout.php';
+}
 
 
 

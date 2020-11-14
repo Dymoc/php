@@ -1,4 +1,4 @@
 <h1><?= $title ?></h1>
 <p>
-     <?= $content ?>
+     <?php var_dump($content); ?>
 </p>
