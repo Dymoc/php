@@ -1,7 +1,8 @@
-<?php 
+<?php
 
 define('DOCROOT', __DIR__ . '/../');
 define('TPL_PATH', DOCROOT . 'templates/');
+define('IMG_PATH', DOCROOT . 'public/img');
 
 require DOCROOT . '/engine/helpers/helper.php';
 
@@ -30,11 +31,11 @@ $action = isset($uri[1]) && $uri[1] ? $uri[1] : 'home';
 // // var_dump($action);
 
 // if(!in_array($action, ['home', 'posts'])){
-$filePath = DOCROOT .'engine/actions/'. $action .'.php';
+$filePath = DOCROOT . 'engine/actions/' . $action . '.php';
 
 // var_dump($filePath);
 
-if(!file_exists($filePath)){
+if (!file_exists($filePath)) {
 	abort(404);
 }
 
