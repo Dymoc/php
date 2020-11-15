@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 09 2020 г., 22:15
--- Версия сервера: 8.0.19
--- Версия PHP: 7.4.5
+-- Время создания: Ноя 15 2020 г., 16:50
+-- Версия сервера: 10.3.22-MariaDB
+-- Версия PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,14 +24,54 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `goods`
+--
+
+CREATE TABLE `goods` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `price` decimal(22,2) NOT NULL,
+  `status` enum('active','deleted') NOT NULL DEFAULT 'active',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `imgs`
+--
+
+CREATE TABLE `imgs` (
+  `id` int(11) NOT NULL,
+  `name` varchar(16) COLLATE utf8mb4_bin NOT NULL,
+  `path` varchar(128) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Дамп данных таблицы `imgs`
+--
+
+INSERT INTO `imgs` (`id`, `name`, `path`) VALUES
+(1, '1', '/img/'),
+(2, '2', '/img/'),
+(3, '3', '/img/'),
+(4, '4', '/img/'),
+(5, '5', '/img/'),
+(6, '6', '/img/');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `news`
--- 
+--
 
 CREATE TABLE `news` (
-  `id` int UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `status` enum('active','deleted','draft') NOT NULL DEFAULT 'draft'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,12 +80,18 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `title`, `content`, `created_at`, `status`) VALUES
-(1, 'The National (Объединенные Арабские Эмираты): в ОАЭ разрешили употребление алкоголя и сожительство вне брака', 'Употребление спиртных напитков и совместное проживание вне брака отныне не считаются уголовными преступлениями в Объединенных Арабских Эмиратах (ОАЭ). Это — крупнейший за последние годы пересмотр правовой системы, который затронул все — от развода и правил наследования до употребления алкоголя.', '2020-11-09 18:26:57', 'draft'),
-(2, 'Бюджетный Nissan Magnite запатентовали в России', 'Кроссовер Nissan Magnite был представлен в летом 2020 года. Автомобиль создавался специально для рынка Индии, однако не исключено, что он появится в продаже в других странах. Его дебют должен состояться в начале 2021 года.', '2020-11-09 18:27:45', 'draft');
+(1, 'The National (Объединенные Арабские Эмираты): в ОАЭ разрешили употребление алкоголя и сожительство вне брака', 'Употребление спиртных напитков и совместное проживание вне брака отныне не считаются уголовными преступлениями в Объединенных Арабских Эмиратах (ОАЭ). Это — крупнейший за последние годы пересмотр правовой системы, который затронул все — от развода и правил наследования до употребления алкоголя.', '2020-11-09 15:26:57', 'draft'),
+(2, 'Бюджетный Nissan Magnite запатентовали в России', 'Кроссовер Nissan Magnite был представлен в летом 2020 года. Автомобиль создавался специально для рынка Индии, однако не исключено, что он появится в продаже в других странах. Его дебют должен состояться в начале 2021 года.', '2020-11-09 15:27:45', 'draft');
 
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `imgs`
+--
+ALTER TABLE `imgs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `news`
@@ -59,10 +105,16 @@ ALTER TABLE `news`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `imgs`
+--
+ALTER TABLE `imgs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
