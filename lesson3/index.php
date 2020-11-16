@@ -120,16 +120,20 @@ $arr = [
                "ъ" => "`",
                "э" => "e",
                "ю" => "yu",
-               "я" => "ya",
-               "_" => "_"
+               "я" => "ya"
           ];
           $conteiner = [];
           // var_dump(test($str));
           $arr_str = preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY);
 
           foreach ($arr_str as $key => $value) {
-               array_push($conteiner, $alfabet[$value]);
-               implode("", $conteiner);
+               if (array_key_exists($value, $alfabet)) {
+                    array_push($conteiner, $alfabet[$value]);
+                    implode("", $conteiner);
+               } else {
+                    array_push($conteiner, $value);
+                    implode("", $conteiner);
+               }
           }
           return implode("", $conteiner);
      }
