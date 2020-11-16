@@ -16,7 +16,9 @@ echo "<hr>";
 echo "Задание 2 <br>";
 $i = 0;
 do {
-     if ($i % 2 == 0 && $i > 1) {
+     if ($i == 0) {
+          echo $i . " - ноль <br>";
+     } else if ($i % 2 == 0 && $i > 1) {
           echo $i . " - четное число <br>";
      } else {
           echo $i . " - не четное число <br>";
@@ -155,13 +157,13 @@ $arr = [
 
      $str_ing = $_POST['str_ing'];
 
-     function null($str_ing)
+     function spaceIn($str_ing)
      {
           $prob = "_";
           return str_replace(" ", $prob, $str_ing);
      };
      if (array_key_exists('str_ing', $_POST)) {
-          print(null($str_ing));
+          print(spaceIn($str_ing));
      }
 
      echo "<br>";
@@ -208,13 +210,13 @@ $arr = [
      function valid($arr)
      {
 
-          $filter_str = 'П';
+          $filter_str = 'К';
           $conteiner = [];
           foreach ($arr as $key => $value) {
 
                $str_split_unicode = str_split_unicode($value);
 
-               if ($str_split_unicode[0] != $filter_str) {
+               if ($str_split_unicode[0] == $filter_str) {
                     array_push($conteiner, $value);
                }
           };
@@ -238,7 +240,7 @@ $arr = [
 
      function modify($str_ing_mod)
      {
-          return  transcription(null($str_ing_mod));
+          return  transcription(spaceIn($str_ing_mod));
      };
 
      if (array_key_exists('str_ing_mod', $_POST)) {
