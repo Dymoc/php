@@ -1,31 +1,31 @@
 <?php
-$i = 0;
+// $i = 0;
 
-//------>>> Задание 1
-echo "Задание 1 <br>";
-while ($i <= 100) {
-     if ($i % 3 == 0) {
-          echo $i . "<br>";
-     }
-     $i++;
-}
-echo "<hr>";
+// //------>>> Задание 1
+// echo "Задание 1 <br>";
+// while ($i <= 100) {
+//      if ($i % 3 == 0) {
+//           echo $i . "<br>";
+//      }
+//      $i++;
+// }
+// echo "<hr>";
 
 
 //------>>> Задание 2
-echo "Задание 2 <br>";
-$i = 0;
-do {
-     if ($i == 0) {
-          echo $i . " - ноль <br>";
-     } else if ($i % 2 == 0 && $i > 1) {
-          echo $i . " - четное число <br>";
-     } else {
-          echo $i . " - не четное число <br>";
-     }
-     $i++;
-} while ($i <= 10);
-echo "<hr>";
+// echo "Задание 2 <br>";
+// $i = 0;
+// do {
+//      if ($i == 0) {
+//           echo $i . " - ноль <br>";
+//      } else if ($i % 2 == 0 && $i > 1) {
+//           echo $i . " - четное число <br>";
+//      } else {
+//           echo $i . " - не четное число <br>";
+//      }
+//      $i++;
+// } while ($i <= 10);
+// echo "<hr>";
 
 
 //------>>> Задание 3
@@ -76,18 +76,11 @@ $arr = [
 
 
      <?php
-     function str_split_unicode($str, $l = 0)
-     {
-          if ($l > 0) {
-               $ret = array();
-               $len = mb_strlen($str, "UTF-8");
-               for ($i = 0; $i < $len; $i += $l) {
-                    $ret[] = mb_substr($str, $i, $l, "UTF-8");
-               }
-               return $ret;
-          }
-          return preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY);
-     }
+
+     // function test($str)
+     // {
+     //      return preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY);
+     // }
 
 
      $str = $_POST['str'];
@@ -131,7 +124,9 @@ $arr = [
                "_" => "_"
           ];
           $conteiner = [];
-          $arr_str = str_split_unicode($str);
+          // var_dump(test($str));
+          $arr_str = preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY);
+
           foreach ($arr_str as $key => $value) {
                array_push($conteiner, $alfabet[$value]);
                implode("", $conteiner);
@@ -196,7 +191,9 @@ $arr = [
 
 
      <!-- //----- Задание 8 -->
+
      <?= "Задание 8 <br>"; ?>
+
      <?php foreach ($arr as $key => $value) : ?>
           <h3><?= $key . " : "; ?></h3>
           <?php if ($value) : ?>
@@ -207,16 +204,13 @@ $arr = [
      <?php endforeach; ?>
 
      <?php
+
      function valid($arr)
      {
-
           $filter_str = 'К';
           $conteiner = [];
           foreach ($arr as $key => $value) {
-
-               $str_split_unicode = str_split_unicode($value);
-
-               if ($str_split_unicode[0] == $filter_str) {
+               if (preg_split("//u", $value, -1, PREG_SPLIT_NO_EMPTY)[0] == $filter_str) {
                     array_push($conteiner, $value);
                }
           };
