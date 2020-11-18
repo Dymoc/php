@@ -26,8 +26,6 @@ if (!function_exists('view')) {
 		// Импортирует переменные из массива в текущую таблицу символов
 		extract($data);
 
-		var_dump($path);
-
 		require TPL_PATH . $path . '.php';
 
 		// Возвращает содержимое буфера вывода

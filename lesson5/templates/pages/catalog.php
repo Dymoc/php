@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title><?= $title; ?></title>
-     <link rel="stylesheet" href="./css/style.css">
-</head>
-
-<body>
-
-     <?php foreach ($imgsPath as $src => $value) : ?>
-          <a href="<?= $value; ?>" target="_blank"><img class="galery_img" src="<?= $value; ?>" alt="""></a>
-     <?php endforeach; ?>
-     <br>
-     <br>
-
-
-     <?php
-     require(TPL_PATH . 'form.php');
-     ?>
-
-</body>
-
-</html>
+<?php foreach ($data as $item) : ?>
+     <a href="/catalog/?id=<?= $item['id'] ?>"><img src="<?= $item['path_img'] . $item['name'] . '.png' ?>" alt="" style="width:100px"></a>
+<?php endforeach; ?>

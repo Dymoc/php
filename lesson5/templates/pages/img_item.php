@@ -1,4 +1,2 @@
 <h1><?= $title ?></h1>
-<p>
-     <?php var_dump($item); ?>
-</p>
+<img src="<?= $path_img . $name . '.png' ?>" alt="">

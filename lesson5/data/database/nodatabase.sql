@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 15 2020 г., 16:50
+-- Время создания: Ноя 18 2020 г., 21:38
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -46,20 +46,21 @@ CREATE TABLE `goods` (
 CREATE TABLE `imgs` (
   `id` int(11) NOT NULL,
   `name` varchar(16) COLLATE utf8mb4_bin NOT NULL,
-  `path` varchar(128) COLLATE utf8mb4_bin NOT NULL
+  `path_img` varchar(128) COLLATE utf8mb4_bin NOT NULL,
+  `size` int(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Дамп данных таблицы `imgs`
 --
 
-INSERT INTO `imgs` (`id`, `name`, `path`) VALUES
-(1, '1', '/img/'),
-(2, '2', '/img/'),
-(3, '3', '/img/'),
-(4, '4', '/img/'),
-(5, '5', '/img/'),
-(6, '6', '/img/');
+INSERT INTO `imgs` (`id`, `name`, `path_img`, `size`) VALUES
+(1, '1', '/img/', NULL),
+(2, '2', '/img/', NULL),
+(3, '3', '/img/', NULL),
+(4, '4', '/img/', NULL),
+(5, '5', '/img/', NULL),
+(6, '6', '/img/', NULL);
 
 -- --------------------------------------------------------
 

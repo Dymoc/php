@@ -1,18 +1,33 @@
 <?php
 
-$title = 'Catalog';
-$post_file_path = '/post_file/';
+require DOCROOT . '/engine/db.php';
+
+if (is_numeric(array_get($_GET, 'id'))) {
+
+     $item = dbGetRow('select * from imgs where id = ' . (int)$_GET['id']  . ';');
 
 
-$imgs = array_filter(scandir(IMG_PATH), function ($name) {
-     return !in_array($name, ['..', '.']);
-});
+     // $var = array_get($item, 'test');
+     // $var = isset($item['test']) ? $item['test'] : 123;
 
-$imgsPath = array_map(function ($name) {
-     return '/img/' . $name;
-}, $imgs);
+     if (!$item) {
+          abort(404);
+     }
 
-// $imgs = array_filter(scandir(IMG_PATH), fn ($name) => !in_array(($name), ['..', '.']));  // ------> не могу понять почему стрелочные не работают, ошибка синтаксиса
-// $imgPath = array_map(fn ($name) => '/img/' . $name, $imgs);
+     $title = 'Картинка';
 
-require(TPL_PATH . './pages/catalog.php');
+     $content = view('pages/img_item', $item);
+
+     return require TPL_PATH . 'layout.php';
+}
+
+
+
+$title = 'Каталог';
+
+$data = dbGetAll('select * from imgs;');
+
+
+$content = view('pages/catalog', $data);
+
+require TPL_PATH . 'layout.php';
