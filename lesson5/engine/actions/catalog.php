@@ -4,17 +4,17 @@ require DOCROOT . '/engine/db.php';
 
 if (is_numeric(array_get($_GET, 'id'))) {
 
-     $item = dbGetRow('select * from imgs where id = ' . (int)$_GET['id']  . ';');
-
-
-     // $var = array_get($item, 'test');
-     // $var = isset($item['test']) ? $item['test'] : 123;
+     $item = dbGetRow('select * from `imgs` where `id` = ' . (int)$_GET['id']  . ';');
 
      if (!$item) {
           abort(404);
      }
 
      $title = 'Картинка';
+
+     $item['view']++;
+
+     dbUpdateRow('update `imgs` SET `view`=' . (int)$item["view"] . ' where id = ' . (int)$_GET['id']  . ';');
 
      $content = view('pages/img_item', $item);
 
@@ -25,7 +25,7 @@ if (is_numeric(array_get($_GET, 'id'))) {
 
 $title = 'Каталог';
 
-$data = dbGetAll('select * from imgs;');
+$data = dbGetAll('select * from `imgs` order by `view` desc;');
 
 
 $content = view('pages/catalog', $data);
