@@ -1,0 +1,7 @@
+ in (select * from news where status != 'deleted' )
+ in (select * from news where status != 'deleted' )
+ in (select * from news where status != 'deleted' )
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'status = 'active'' at line 1 in (select * from news where status != 'deleted' status = 'active')
+ in (INSERT INTO news (title, content, status) VALUES ('&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;', 'dsfdsf', 'draft');)
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where id = 3' at line 1 in (UPDATE news  set  where id = 3;)
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where id = 3' at line 1 in (UPDATE news  set  where id = 3;)

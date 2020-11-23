@@ -1,0 +1,11 @@
+.main-nav .active {
+	border-bottom: 1px solid;
+}
+
+h1 {
+	text-align: center;
+}
+
+.fv-error {
+	font-size: .7rem;
+}
