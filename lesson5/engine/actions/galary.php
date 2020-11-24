@@ -28,6 +28,6 @@ $title = 'Каталог';
 $data = dbGetAll('select * from `imgs` order by `view` desc;');
 
 
-$content = view('pages/catalog', $data);
+$content = view('pages/galary', $data);
 
 require TPL_PATH . 'layout.php';
