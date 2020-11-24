@@ -23,7 +23,7 @@ if (is_numeric(array_get($_GET, 'id'))) {
 
 
 
-$title = 'Каталог';
+$title = 'Галерея';
 
 $data = dbGetAll('select * from `imgs` order by `view` desc;');
 
