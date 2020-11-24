@@ -1,11 +1,11 @@
 <form method="post">
-     <input type="text" name="x1">
+     <input type="number" name="x1" required>
      <select name="operation">
           <option value="+">+</option>
           <option value="-">-</option>
           <option value="*">*</option>
           <option value="/">/</option>
      </select>
-     <input type="text" name="x2">
+     <input type="number" name="x2" required>
      <input type="submit" value="Посчитать">
 </form>

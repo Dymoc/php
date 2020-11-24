@@ -1,1 +1,3 @@
-var a = '123';
+function calc() {
+     console.log(yes)
+}
