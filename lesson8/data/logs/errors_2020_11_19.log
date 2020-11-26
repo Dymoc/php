@@ -1,0 +1,2 @@
+Field 'id' doesn't have a default value in (INSERT INTO categories (name) VALUES ('test');)
+Data truncated for column 'status' at row 1 in (UPDATE categories set `status` = 'NEWS_STATUS_DELETED' where id = 1;)
